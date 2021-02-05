@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset=" utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/student_course.css">
+    <title>
+    </title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <!-- search bar -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8">
+                <div class="input-group mb-3 mt-3">
+
+                    <!-- Search bar -->
+                    <input type="text" class="form-control" id="searchBar" placeholder="Enter Student ID"
+                        aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <!-- Search bar -->
+
+                    <!-- buttons -->
+                    <button class="btn btn-primary" onclick="searchStudent()"><i class="fa fa-search"></i></button>
+                    <button data-bs-toggle="modal" data-bs-target="#add" class="btn btn-success">ADD</button>
+                    <a href="/manage" class="btn btn-info">Back</a>
+                    <!-- buttons -->
+                </div>
+            </div>
+        </div>
+        <!-- search bar -->
+
+        <!-- table -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-8">
+                <table class="table table-striped table-bordered    ">
+                    <thead>
+                        <tr class="table-primary">
+                            <th scope="col">ID Number</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">Year Level</th>
+                            <th scope="col">Contact Number</th>
+                            <th scope="col">E-mail address</th>
+                            <th>Operations</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if ( students.length> 0) { %>
+                            <% students.forEach(student=> { %>
+                                <tr class="table-secondary">
+                                    <td id="studentId">
+                                        <%= student._id %>
+                                    </td>
+                                    <td id="studentFullName">
+                                        <%= student.fullName %>
+                                    </td>
+                                    <td id="studentCourse">
+                                        <%= student.course %>
+                                    </td>
+
+                                    <% if (student.yearLevel==1) { %>
+                                        <td class="<% student.yearLevel %> ">1st</td>
+                                        <% } %>
+
+                                            <% if (student.yearLevel==2) { %>
+                                                <td>2nd</td>
+                                                <% } %>
+
+                                                    <% if (student.yearLevel==3) { %>
+                                                        <td>3rd</td>
+                                                        <% } %>
+
+                                                            <% if (student.yearLevel==4) { %>
+                                                                <td>4th</td>
+                                                                <% } %>
+
+
+                                                                    <td class="studentContactNumber">
+                                                                        <%= student.contactNumber %>
+                                                                    </td>
+                                                                    <td class="studentEmailAddress">
+                                                                        <%= student.emailAddress %>
+                                                                    </td>
+
+                                                                    <td>
+                                                                        <a href="/student/<%= student._id %> "
+                                                                            class="btn btn-primary btn-sm">View
+                                                                            Details</a>
+                                                                    </td>
+
+                                </tr>
+                                <% }) %>
+                                    <% } else {%>
+                                        <h1>Nothing to show</h1>
+
+                                        <% } %>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <!-- table -->
+
+        <!-- add modal -->
+        <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add new Student
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- MODAL FORM -->
+                        <form action="/student" method="POST" enctype="multipart/form-data" class="form">
+                            <!-- image -->
+                            <div>
+                                <img src="" alt="Student Photo" width="100%" height="300px" id="studentPhoto">
+                            </div>
+                            <!-- image -->
+
+                            <!-- upload -->
+                            <div>
+                                <input type="file" accept="image/*" name="studentPhoto" id="fileUpload"
+                                    onchange="preview_image(event)" class="form-control-file" required>
+                            </div>
+                            <!-- upload -->
+
+                            <!-- ID Number -->
+                            <div class="mb-2">
+                                <p class="text-muted">ID must be unique!!!</p>
+                                <input type="text" name="_id" class="form-control" placeholder="ID number" required>
+                            </div>
+                            <!-- ID Number -->
+
+                            <!-- fullname -->
+                            <div class="mb-2">
+                                <input type="text" name="fullName" class="form-control" placeholder="Full Name"
+                                    required>
+                            </div>
+                            <!-- fullname -->
+
+                            <!-- course -->
+                            <div class="mb-2">
+                                <select class="form-select" name="course" aria-label="Default select example" required>
+                                    <option value="BSCE">BSCE</option>
+                                    <option value="BSCpE">BSCpE</option>
+                                    <option value="BSECE">BSECE</option>
+                                    <option value="BSEE">BSEE</option>
+                                </select>
+                            </div>
+                            <!-- course -->
+
+                            <!-- year level -->
+                            <div class="mb-2">
+                                <select class="form-select" name="yearLevel" aria-label="Default select example"
+                                    required>
+                                    <option value="1">1st</option>
+                                    <option value="2">2nd</option>
+                                    <option value="3">3rd</option>
+                                    <option value="4">4th</option>
+                                </select>
+                            </div>
+                            <!-- year level -->
+
+                            <!-- contact number -->
+                            <div class="mb-2">
+                                <input type="text" name="contactNumber" class="form-control"
+                                    placeholder="Contact Number" required>
+                            </div>
+                            <!-- contact number -->
+
+                            <!-- email address -->
+                            <div class="mb-2">
+                                <input type="email" name="emailAddress" class="form-control"
+                                    placeholder="E-mail address" required>
+                            </div>
+                            <!-- email address -->
+
+                            <!-- submit -->
+                            <button type="submit" class="btn btn-primary">ADD</button>
+                        </form>
+                    </div>
+                    <!-- MODAL FORM -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- add modal -->
+
+    <!-- CUSTOM SCRIPTS -->
+    <script>
+        // image preview before upload
+        function preview_image(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById('studentPhoto')
+                output.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function searchStudent() {
+
+            const studentId = document.getElementById('searchBar').value;
+            window.location.href = `/student/${studentId}`
+        }
+
+    </script>
+
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

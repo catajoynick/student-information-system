@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- CUSTOMC CSS -->
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>Manage</title>
+</head>
+
+<body>
+
+    <!-- nav section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SI System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active text-muted" data-bs-toggle="modal" data-bs-target="#loginModal"
+                            aria-current="page" href="#">Welcome </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-muted" data-bs-toggle="modal" data-bs-target="#logoutModal"
+                            aria-current="page" role="button">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- nav section -->
+
+    <div class="container-fluid">
+        <!-- card -->
+        <section class="card__section">
+            <!-- BSCpE -->
+            <div class="card course__card" style="width: 18rem;">
+                <img src="/images/1.svg" class="card-img-top course__card-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">BSCpE</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's
+                        content.
+                    </p>
+                </div>
+                <div class="d-grid course__card-button">
+                    <a href="/manage/BSCpE" class="btn btn-primary">Manage</a>
+                </div>
+            </div>
+            <!-- BSCpE -->
+
+            <!-- BSCE -->
+            <div class="card course__card" style="width: 18rem;">
+                <img src="/images/2.svg" class="card-img-top course__card-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">BSCE</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's
+                        content.</p>
+                </div>
+                <div class="d-grid course__card-button">
+                    <a href="/manage/BSCE" class="btn btn-primary">Manage</a>
+                </div>
+            </div>
+
+            <!-- BSCE -->
+
+            <!-- BSEE -->
+            <div class="card course__card" style="width: 18rem;">
+                <img src="/images/3.svg" class="card-img-top course__card-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">BSEE</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's
+                        content.
+                    </p>
+                </div>
+
+                <div class="d-grid course__card-button">
+                    <a href="/manage/BSEE" class="btn btn-primary">Manage</a>
+                </div>
+            </div>
+            <!-- BSEE -->
+
+            <!-- BSECE -->
+            <div class="card course__card" style="width: 18rem;">
+                <img src="/images/4.svg" class="card-img-top course__card-img" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">BSECE</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        the
+                        card's
+                        content.
+                    </p>
+                </div>
+
+                <div class="d-grid course__card-button">
+                    <a href="/manage/BSECE" class="btn btn-primary">Manage</a>
+                </div>
+            </div>
+            <!-- BSECE -->
+        </section>
+
+
+        <!-- logout modal -->
+        <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Logout?</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <a type="submit" href="/logout" class="btn btn-primary">Logout</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login modal -->
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

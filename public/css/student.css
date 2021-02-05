@@ -1,0 +1,15 @@
+body {
+    height: 100vh;
+    background-image: linear-gradient(#085078, #85d8ce);
+    background-size: cover;
+}
+
+.student_photo {
+    margin: 0 auto;
+}
+
+.student_photo img {
+
+    height: 250px;
+    width: 99%;
+}

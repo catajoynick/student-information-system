@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <!-- <meta http-equiv="Content-Security-Policy" content="default-src *;"> -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/css/index.css">
+  <title>SIS</title>
+</head>
+
+<body>
+
+  <!-- nav section -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" data-bs-toggle="modal" data-bs-target="#softwareInformation">SI System</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-muted" data-bs-toggle="modal" data-bs-target="#loginModal"
+              aria-current="page" href="#">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- nav section -->
+
+  <!-- container -->
+  <div class="container-fluid">
+    <!-- carousel -->
+    <div class="custom__carousel">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide " data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="1"></li>
+          <li data-bs-target="#carouselExampleDark" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner custom__carousel">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="./images/1.svg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="./images/2.svg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./images/3.svg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="./images/4.svg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+
+      <div class="text-center">
+        <p class="fs-4">Manage Student Information with ease.</p>
+      </div>
+    </div>
+    <!-- carousel -->
+    <!-- footer -->
+    <footer>
+      <div>
+        <p>copyright 2021</p>
+      </div>
+    </footer>
+    <!-- footer -->
+  </div>
+  <!-- container -->
+
+  <!-- login modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Login administrator</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/manage" method="post">
+            <div class="mb-2">
+              <input class="form-control" type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-2">
+              <input class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- login modal -->
+
+  <!-- software info -->
+  <div class="modal fade" tabindex="-1" id="softwareInformation" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Software Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Sofware Version: <span class="text-muted">v1.1.0</span></p>
+          <p>Software Maker: <span class="text-muted">Nickskiejoi</span></p>
+          <p>Copyright: <span class="text-muted">&copy; 2021</span></p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- software info -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

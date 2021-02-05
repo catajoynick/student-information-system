@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/css/student.css">
+    <title></title>
+</head>
+
+<body>
+
+    <!-- container -->
+    <div class="container">
+        <% if (student.length> 0) { %>
+            <div class="row justify-content-center mt-5">
+                <div class="col text-center">
+                    <!-- Student Image -->
+                    <div class="student_photo">
+                        <img src="https://nickssis.herokuapp.com/<%= student[0].studentPhoto %>" id="studentPhoto "
+                            value="<%= student[0].studentPhoto %>" alt="Student Photo">
+                        <p>Student Photo</p>
+                    </div>
+                    <!-- Student Image -->
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <form action="">
+
+                        <!-- Student ID -->
+                        <div class="mb-2">
+                            <label for="id" class="fs-6 ">Student ID</label>
+                            <input type="text" name="" id="id" placeholder="id" class="form-control"
+                                value="<%= student[0]._id %>" disabled>
+                        </div>
+                        <!-- Student ID -->
+
+                        <!-- Student Fullname -->
+                        <div class="mb-2">
+                            <label for="fullName" class="fs-6">Fullname</label>
+                            <input type="text" name="" id="fullName" placeholder="Fullname" class="form-control"
+                                value="<%= student[0].fullName %>">
+                        </div>
+                        <!-- Student Full Name -->
+
+                        <!-- Student Course -->
+                        <div class="mb-2">
+                            <label for=""> Course</label>
+                            <select class="form-select" name="course" id="course" aria-label="Default select example"
+                                required>
+                                <option value="<%= student[0].course %>" selected>
+                                    <%= student[0].course %>
+                                </option>
+                                <option value="BSCE">BSCE</option>
+                                <option value="BSCpE">BSCpE</option>
+                                <option value="BSECE">BSECE</option>
+                                <option value="BSEE">BSEE</option>
+                            </select>
+                        </div>
+                        <!-- Student Course -->
+
+                        <!-- Student Year Level -->
+
+                        <div class="mb-2">
+                            <label for="">Year Level</label>
+                            <select class="form-select" name="" id="yearLevel" aria-label="Default select example"
+                                required>
+                                <option value="<%= student[0].yearLevel %>" selected>
+                                    <%= student[0].yearLevel %>
+                                </option>
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                                <option value="3">3rd</option>
+                                <option value="4">4th</option>
+                            </select>
+                        </div>
+                        <!-- Student year level -->
+
+                        <!-- Student Contact Number -->
+                        <div class="mb-2">
+                            <label for="contactNumber" class="fs-6">Contact Number</label>
+                            <input type="text" name="" id="contactNumber" placeholder="Contact Number"
+                                class="form-control" value="<%= student[0].contactNumber %>"
+                                placeholder="Contact Number">
+                        </div>
+                        <!-- Student Contact Number -->
+
+                        <!-- Student E-mail address -->
+                        <div class="mb-2">
+                            <label for="emailAddress" class="fs-6">Email-address</label>
+                            <input type="text" name="" id="emailAddress" placeholder="Email-address"
+                                class="form-control" value="<%= student[0].emailAddress %> ">
+                        </div>
+                        <!-- Student E-mail address -->
+
+                        <!-- Buttons -->
+                        <a href="" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#confirmDeleteModal">Delete</a>
+
+                        <a href="" class="btn btn-warning" data-bs-toggle="modal"
+                            data-bs-target="#confirmUpdateModal">Update</a>
+
+                        <a href="/manage/<%= student[0].course %>" class="btn btn-info">Back</a>
+                        <button class="btn btn-success" onclick="window.print()">Print</button>
+                        <!-- Buttons -->
+
+                    </form>
+                </div>
+            </div>
+
+            <!-- Confirm delete modal -->
+            <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">DELETE student <%= student[0]._id %>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="fs-5">Confirm delete: <%= student[0].fullName %>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary " id="btn-delete"
+                                data-doc="<%= student[0]._id %> ">Confirm</button>
+
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- confirm delete modal -->
+
+            <!-- confirm update modal -->
+            <div class="modal fade" id="confirmUpdateModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Update student: <%= student[0]._id %>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="fs-5">Confirm update: <%= student[0].fullName %>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary " id="btn-update"
+                                data-doc="<%= student[0]._id %> ">Confirm</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% } else{ %>
+                <h1>Nothing to show</h1>
+                <% } %>
+    </div>
+    <!-- container -->
+
+
+    <!-- confirm update modal -->
+    <script>
+
+
+        // delete script
+        const buttonDelete = document.getElementById('btn-delete');
+        buttonDelete.addEventListener('click', () => {
+
+            const endpoint = `/student/${buttonDelete.dataset.doc}`;
+            fetch(endpoint, {
+                method: "DELETE"
+            }).then(response => response.json()).then(data => window.location.href = data.redirect);
+        })
+
+        const buttonUpdate = document.getElementById('btn-update');
+        buttonUpdate.addEventListener('click', () => {
+
+            const data = JSON.stringify({
+                _id: document.getElementById('id').value,
+                // studentPhoto: document.getElementById('studentPhoto').value,
+                fullName: document.getElementById('fullName').value,
+                course: document.getElementById('course').value,
+                yearLevel: document.getElementById('yearLevel').value,
+                contactNumber: document.getElementById('contactNumber').value,
+                emailAddress: document.getElementById('emailAddress').value,
+            });
+
+            const endpoint = `/student/${buttonUpdate.dataset.doc}`;
+            fetch(endpoint, {
+                method: "PUT",
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8' // Indicates the content 
+                },
+                body: data
+            }).then(response => response.json()).then(data => window.location.href = data.redirect);
+        })
+    </script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+.custom__carousel {
+
+    height: 70vh;
+    width: 100%;
+}
+
+.custom__carousel img {
+
+    height: 400px;
+    width: 100%;
+}
+
+footer {
+    display: flex;
+    height: 20vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}

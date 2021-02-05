@@ -1,0 +1,30 @@
+.card__section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.course__card {
+
+    padding: .5rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-flow: column;
+}
+
+.course__card:hover {
+
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+.course__card-img {
+
+    height: 250px;
+}
+
+
+.course__card-button {
+    margin-top: auto;
+}
