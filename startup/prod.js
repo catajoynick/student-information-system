@@ -1,7 +1,15 @@
 const helmet = require("helmet");
 const compression = require("compression");
+const rateLimit = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100 // limit each IP to 100 requests per windowMs
+});
 
 module.exports = function (app) {
   app.use(helmet());
   app.use(compression());
+  app.use(limiter);
+
 };
